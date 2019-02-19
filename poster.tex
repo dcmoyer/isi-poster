@@ -1,0 +1,173 @@
+% Gemini theme
+% https://github.com/anishathalye/gemini
+
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[size=custom,width=120,height=72,scale=1.0]{beamerposter}
+\usetheme{gemini}
+\usecolortheme{usc}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+
+\usepackage{mathtools}
+\usepackage{amsmath}
+
+% ====================
+% Colors 
+% ====================
+
+
+\definecolor{nice_blue}{RGB}{65, 105, 225}
+\definecolor{nice_red}{RGB}{168, 34, 34}
+\definecolor{IGCBlue}{HTML}{16197A}
+
+\definecolor{dark_green}{RGB}{20, 110, 10}
+
+\definecolor{graph_blue}{RGB}{144, 195, 212}
+\definecolor{graph_purple}{RGB}{195, 144, 212}
+\definecolor{graph_green}{RGB}{161, 212, 144}
+\definecolor{graph_orred}{RGB}{202, 81, 64}
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.3\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+\newcommand{\eat}[1]{}
+
+% ====================
+% Title
+% ====================
+
+\title{Invariant Representations without Adversarial Training}
+
+%\author{Alyssa P. Hacker \inst{1} \and Ben Bitdiddle \inst{2} \and Lem E. Tweakit \inst{2}}
+%\institute[shortinst]{\inst{1} Some Institute \samelineand \inst{2} Another Institute}
+
+\author{Daniel Moyer \and Shuyang Gao \and Rob Brekelmans \and  Greg Ver Steeg \and Aram Galstyan}
+\institute[shortinst]{Information Sciences Institute, University of Southern California}
+
+% ====================
+% Body
+% ====================
+
+\begin{document}
+
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+  \begin{alertblock}{The TL;DR}
+
+    \textbf{Have}: Data $x$, Task $\mathcal{L}$, Protected Classes $c$.\\
+    \textbf{Want}: Optimal $\mathcal{L}$ performance, unbiased against $c$\\
+    \textbf{Idea}: Find a representation $z$ of $x$ invariant to $c$.\\
+    %Problem statement:
+    \[\min_{f(x)} \mathcal{L}(z,\dots), z=f(x) \text{ s.t. } z \perp c  \]
+    Previous works use adversaries. We instead minimize $I(z,c)$.
+    This works as well or better \cite{moyer2018invariant}.\\[1em]
+
+    \textbf{Takehome Intution}: Compression $+$ Conditional Reconstruction $\rightarrow$ Invariance \\[1em]
+
+    \begin{center}
+      \input{images/tikz_cats.tex}
+    \end{center}
+    \vspace{-0.75cm}
+
+  \end{alertblock}
+
+%%
+%%
+%%
+
+  \begin{block}{Summary}
+
+  \end{block}
+
+  %%\begin{block}{Pictograms?}
+  %%  \begin{minipage}{0.3\textwidth}
+  %%    \input{pictogram/cats.tex}
+  %%  \end{minipage}
+  %%
+  %%\end{block}
+
+%%
+%%
+%%
+
+
+\end{column}
+
+%%
+%%
+%%
+
+\separatorcolumn
+
+%%
+%%
+%%
+
+
+\begin{column}{\colwidth}
+
+  \begin{block}{Details}
+  \end{block}
+
+
+  \begin{block}{References}
+
+    \footnotesize{
+      This work was supported by DARPA grants INPUT NUMBER HERE and INPUT ANOTHER NUMBER HERE, as well as the NSF Graduate Research Fellowship Program Grant Number DGE-1418060. We would like to thank our mothers, our roommates, and the coffee people next door. Also, we'd like to thank Greg for several helpful conversations.
+      \bibliographystyle{plain}\bibliography{poster}
+    }
+
+  \end{block}
+
+\end{column}
+
+%%
+%%
+%%
+
+\separatorcolumn
+
+%%
+%%
+%%
+
+\begin{column}{\colwidth}
+
+  \begin{block}{Demonstration}
+  \end{block}
+\end{column}
+
+%%
+%%
+%%
+
+\separatorcolumn
+\end{columns}
+\end{frame}
+
+\end{document}
